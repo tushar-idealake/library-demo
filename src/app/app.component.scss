@@ -1,0 +1,48 @@
+
+h1{
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 60px;
+    background: linear-gradient(90deg, rgba(195,182,255,1) 40%, rgba(186,128,238,1) 70%);
+    letter-spacing: 15px;
+    text-align: center;
+    box-shadow: 10px 5px 5px grey;
+    color: black;
+  }
+  
+  h2{
+    font-family: 'Victor Mono', monospace;
+    color: purple;
+  }
+  
+  .mono{
+    font-family: 'Cutive Mono', monospace;
+    line-height: 30px;
+    font-size: 19px;
+    text-decoration: underline overline green;  
+  }
+  
+  .dancing{
+    font-family: 'Dancing Script', cursive;
+    font-size: 23px;
+    line-height: 30px;
+    text-decoration: wavy underline green;
+  }
+  
+  .parrafos {
+   text-transform: full-size-kana;
+   font-size: 20px;
+  }
+  
+  .ultimo_parrafo{
+    font-size: 20px;
+    border: 2px dashed purple;
+    padding: 60px;
+    width: 500px;
+    box-sizing: border-box;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    color: black;
+  }
+  
+  p::selection{
+    background-color: #C39BD3;
+  }

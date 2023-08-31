@@ -1,0 +1,18 @@
+.form-label-group{
+    position: relative;
+
+    .v{
+        position: absolute;
+        top: 38px;
+        right: 10px;
+    }
+
+    .error{
+        color: red;
+    }
+
+    .invalid {
+        border: 2px solid red;
+        outline-color: red;
+    }
+}

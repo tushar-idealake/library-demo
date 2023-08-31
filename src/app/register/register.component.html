@@ -1,0 +1,16 @@
+<form class="form-signin col-12" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Sign up with us!</h1>
+    </div>
+
+    <lib-demo-library [placeholder]="'Username'" [isRequired]="true" [errorMsg]="'Please enter valid username'"
+        [label]="'Username'" [pattern]="Validatorspattern.username" ngModel name="username"></lib-demo-library>
+
+    <lib-demo-library [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
+        [label]="'User Email'" [pattern]="Validatorspattern.email" ngModel name="email"></lib-demo-library>
+
+    <lib-demo-library [placeholder]="'Age'" [isRequired]="true" [label]="'Age'"
+        [errorMsg]="'Please enter valid number of years of age'" [pattern]="Validatorspattern.age" ngModel
+        name="age"></lib-demo-library>
+    <button class="btn btn-lg btn-primary btn-block mt-2" [disabled]="!f.valid" type="submit">Sign up</button>
+</form>
