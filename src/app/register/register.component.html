@@ -3,14 +3,14 @@
         <h1 class="h3 mb-3 font-weight-normal">Sign up with us!</h1>
     </div>
 
-    <lib-demo-library [placeholder]="'Username'" [isRequired]="true" [errorMsg]="'Please enter valid username'"
-        [label]="'Username'" [pattern]="Validatorspattern.username" ngModel name="username"></lib-demo-library>
+    <form-generic-input [placeholder]="'Username'" [isRequired]="true" [errorMsg]="'Please enter valid username'"
+        [label]="'Username'" [pattern]="Validatorspattern.username" ngModel name="username"></form-generic-input>
 
-    <lib-demo-library [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
-        [label]="'User Email'" [pattern]="Validatorspattern.email" ngModel name="email"></lib-demo-library>
+    <form-generic-input [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
+        [label]="'User Email'" [pattern]="Validatorspattern.email" ngModel name="email"></form-generic-input>
 
-    <lib-demo-library [placeholder]="'Age'" [isRequired]="true" [label]="'Age'"
+    <form-generic-input [placeholder]="'Age'" [isRequired]="true" [label]="'Age'"
         [errorMsg]="'Please enter valid number of years of age'" [pattern]="Validatorspattern.age" ngModel
-        name="age"></lib-demo-library>
+        name="age"></form-generic-input>
     <button class="btn btn-lg btn-primary btn-block mt-2" [disabled]="!f.valid" type="submit">Sign up</button>
 </form>

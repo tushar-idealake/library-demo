@@ -21,11 +21,11 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'lib-demo-library',
-  templateUrl: './demo-library.component.html',
-  styleUrls: ['./demo-library.component.scss'],
+  selector: 'form-generic-input',
+  templateUrl: './form-generic-input.component.html',
+  styleUrls: ['./form-generic-input.component.scss'],
 })
-export class DemoLibraryComponent
+export class FormGenericInputComponent
   implements ControlValueAccessor, Validator, OnInit
 {
   @ViewChild('input') input!: ElementRef;
@@ -57,6 +57,7 @@ export class DemoLibraryComponent
     control?.setValidators(validators);
     control?.updateValueAndValidity();
   }
+  
 
   onChange(e: any) {
     console.log(e.target.value);
@@ -88,7 +89,6 @@ export class DemoLibraryComponent
     }
 
     console.log(validators);
-    
 
     return validators;
   }

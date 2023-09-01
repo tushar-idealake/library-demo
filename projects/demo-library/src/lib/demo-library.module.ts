@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DemoLibraryComponent } from './demo-library.component';
+import { FormGenericInputComponent } from './form-generic-input/form-generic-input.component';
+import { FormGenericToggleComponent } from './form-generic-toggle/form-generic-toggle.component';
 import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
-    DemoLibraryComponent,
+    FormGenericInputComponent,
+    FormGenericToggleComponent
   ],
   imports: [
     FormsModule,
@@ -14,7 +16,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   exports: [
-    DemoLibraryComponent,
+    FormGenericInputComponent,
+    FormGenericToggleComponent
   ]
 })
 export class DemoLibraryModule { }

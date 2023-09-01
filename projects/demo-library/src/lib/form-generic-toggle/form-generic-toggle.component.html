@@ -1,0 +1,10 @@
+<div class="form-label-group">
+    <label class="mr-auto" [ngClass]="{invalid: (controlDir &&
+        controlDir.control &&
+        !controlDir.control.valid)}" for={{name}}>{{ label }}
+    </label>
+    <br>
+    <input type="checkbox" [ngClass]="{invalid: (controlDir &&
+        controlDir.control &&
+        !controlDir.control.valid)}" value="false" name={{name}} id={{id}} (change)="onChanged($any($event.target).checked)">
+</div>
