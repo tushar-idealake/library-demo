@@ -5,8 +5,8 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "paths": {
-      "demo-library": [
-        "dist/demo-library"
+      "reusable-ui-library": [
+        "dist/reusable-ui-library"
       ]
     },
     "forceConsistentCasingInFileNames": true,

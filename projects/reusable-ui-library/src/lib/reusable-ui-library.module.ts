@@ -22,4 +22,4 @@ import { CommonModule } from '@angular/common';
     FormGenericSpinnerModule
   ]
 })
-export class DemoLibraryModule { }
+export class ReusableUILibraryModule { }

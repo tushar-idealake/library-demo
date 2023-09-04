@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { FormGenericSpinnerService } from 'demo-library';
+import { FormGenericSpinnerService } from 'reusable-ui-library';
 
 @Component({
   selector: 'app-login',

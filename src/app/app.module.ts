@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { DemoLibraryModule } from 'demo-library';
+import { ReusableUILibraryModule } from 'reusable-ui-library';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -18,7 +18,7 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    DemoLibraryModule,
+    ReusableUILibraryModule,
     FormsModule,
     ReactiveFormsModule
   ],

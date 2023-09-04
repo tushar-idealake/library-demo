@@ -1,0 +1,20 @@
+{
+  "name": "reusable-ui-library",
+  "version": "1.0.1",
+  "description": "UI component library made as a part of task",
+  "author": "Tushar G Kadam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tushar-idealake/library-demo"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0",
+    "@angular/animations": ">=15.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
