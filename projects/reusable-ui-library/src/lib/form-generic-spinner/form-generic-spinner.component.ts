@@ -35,7 +35,7 @@ import { FormGenericSpinnerConfig, GENERIC_SPINNER_CONFIG  } from "./config";
 @Component({
   selector: "form-generic-spinner",
   templateUrl: "form-generic-spinner.component.html",
-  styleUrls: ["./form-generic-spinner.component.css",
+  styleUrls: ["./form-generic-spinner.component.scss",
               "../animations/ball-8bits.css",
               "../animations/ball-8bits.css",
               "../animations/ball-atom.css",
