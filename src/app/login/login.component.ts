@@ -5,20 +5,20 @@ import { FormGenericSpinnerService } from 'reusable-ui-library';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   constructor(private spinner: FormGenericSpinnerService) {}
 
   onSubmit(f: NgForm) {
     console.log(f);
-      this.spinner.show();
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 3000);
-    
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
   }
   keyword = 'name';
+  country = '';
 
   public countries = [
     {
@@ -68,9 +68,9 @@ export class LoginComponent {
     {
       id: 12,
       name: 'Switzerland',
-    }
+    },
   ];
-    selectEvent(item: any) {
+  selectEvent(item: any) {
     // do something with selected item
   }
 
@@ -82,5 +82,4 @@ export class LoginComponent {
   onFocused(e: any) {
     // do something
   }
-
 }
