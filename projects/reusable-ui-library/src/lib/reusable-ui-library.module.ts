@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGenericInputComponent } from './form-generic-input/form-generic-input.component';
 import { FormGenericToggleComponent } from './form-generic-toggle/form-generic-toggle.component';
 import { FormGenericSpinnerModule } from './form-generic-spinner/form-generic-spinner.module';
+import { AutocompleteLibModule } from './form-autocomplete/autocomplete-lib.module'
 import { CommonModule } from '@angular/common';
 
 
@@ -19,7 +20,8 @@ import { CommonModule } from '@angular/common';
   exports: [
     FormGenericInputComponent,
     FormGenericToggleComponent,
-    FormGenericSpinnerModule
+    FormGenericSpinnerModule,
+    AutocompleteLibModule
   ]
 })
 export class ReusableUILibraryModule { }
