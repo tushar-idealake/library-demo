@@ -1,6 +1,7 @@
 <form class="form-signin p-5" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        <!-- <pre>{{ f.value | json }}</pre> -->
     </div>
 
     <form-generic-input [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
@@ -13,5 +14,20 @@
 
     <form-generic-toggle [label]="'Stay signed in?'" id="'staysignedin'" ngModel
         name="staysignedin"></form-generic-toggle>
+
+    <label for="">Select Country</label>
+
+    <generic-autocomplete [data]="countries" name="country" [(ngModel)]="country" [searchKeyword]="keyword" placeholder="Enter the Country Name"
+        (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+        historyIdentifier="countries" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+    </generic-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.name"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+    </ng-template>
     <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Sign in</button>
 </form>
