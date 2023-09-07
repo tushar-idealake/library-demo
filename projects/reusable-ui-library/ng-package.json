@@ -3,5 +3,11 @@
   "dest": "../../dist/reusable-ui-library",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    "./toastr.css",
+    "./toastr-old.css",
+    "./toastr-bs4-alert.scss",
+    "./toastr-bs5-alert.scss"
+  ]
 }

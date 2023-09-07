@@ -13,6 +13,20 @@
     "@angular/core": "^16.2.0",
     "@angular/animations": ">=15.0.0"
   },
+  "exports": {
+    "./toastr": {
+      "default": "./toastr-bs5-alert.scss"
+    },
+    "./toastr-old": {
+      "default": "./toastr-old.css"
+    },
+    "./toastr-bs4-alert": {
+      "default": "./toastr-bs4-alert.scss"
+    },
+    "./toastr-bs5-alert": {
+      "default": "./toastr-bs5-alert.scss"
+    }
+  },
   "dependencies": {
     "tslib": "^2.3.0"
   },
