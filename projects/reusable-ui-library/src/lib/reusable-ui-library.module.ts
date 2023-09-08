@@ -7,6 +7,7 @@ import { AutocompleteLibModule } from './form-autocomplete/autocomplete-lib.modu
 import { CommonModule } from '@angular/common';
 
 
+
 @NgModule({
   declarations: [
     FormGenericInputComponent,
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
     FormGenericInputComponent,
     FormGenericToggleComponent,
     FormGenericSpinnerModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+   
   ]
 })
 export class ReusableUILibraryModule { }
