@@ -14,6 +14,7 @@ Run `ng generate component component-name --project reusable-ui-library` to gene
 - form-generic-spinner
 - generic-autocomplete
 - generic-toastr
+- Paginator
 
 
 ## Build

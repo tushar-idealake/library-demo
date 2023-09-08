@@ -26,3 +26,10 @@ export * from './lib/generic-toastr/portal/portal';
 export * from './lib/generic-toastr/overlay/overlay';
 export * from './lib/generic-toastr/overlay/overlay-container';
 export * from './lib/generic-toastr/overlay/overlay-ref';
+
+
+export * from './lib/paginator/paginator.component';
+export * from './lib/paginator/paginator.service';
+export * from './lib/paginator/paginator.module';
+export * from './lib/paginator/paginator.pipe';
+export * from './lib/paginator/paginator.directive';

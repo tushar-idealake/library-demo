@@ -17,9 +17,10 @@
 
     <label for="">Select Country</label>
 
-    <generic-autocomplete [data]="countries" name="country" [(ngModel)]="country" [searchKeyword]="keyword" placeholder="Enter the Country Name"
-        (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
-        historyIdentifier="countries" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+    <generic-autocomplete [data]="countries" name="country" [(ngModel)]="country" [searchKeyword]="keyword"
+        placeholder="Enter the Country Name" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)'
+        (inputFocused)='onFocused($event)' historyIdentifier="countries" [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate">
     </generic-autocomplete>
 
     <ng-template #itemTemplate let-item>
@@ -31,3 +32,9 @@
     </ng-template>
     <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Sign in</button>
 </form>
+
+<div class="p-5">
+    <a class="p-2 text-dark">
+        <button class="btn btn-lg btn-primary btn-block mt-2" routerLink="/paginator">To paginator demo&rarr;</button>
+    </a>
+</div>
