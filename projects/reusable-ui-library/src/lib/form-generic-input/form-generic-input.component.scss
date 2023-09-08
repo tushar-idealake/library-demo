@@ -1,13 +1,14 @@
-.form-label-group{
+.form-label-group {
     position: relative;
 
-    .v{
+    .v {
         position: absolute;
         top: 38px;
         right: 10px;
     }
 
-    .error{
+    .error,
+    .required {
         color: red;
     }
 

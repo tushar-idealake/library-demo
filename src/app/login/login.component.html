@@ -5,12 +5,15 @@
     </div>
 
     <form-generic-input [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
-        [label]="'User Email'" [pattern]="'[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}'" ngModel
-        name="email"></form-generic-input>
+        [label]="'User Email'" [pattern]="reusableValidation.email" ngModel name="email"></form-generic-input>
 
-    <form-generic-input [placeholder]="'Age'" [isRequired]="true" [label]="'Age'"
-        [errorMsg]="'Please enter valid number of years of age'" [pattern]="'[0-9]{1,3}'" ngModel
-        name="age"></form-generic-input>
+    <form-generic-input [placeholder]="'PAN Card'" [isRequired]="true" [errorMsg]="'Please enter valid PAN card no.'"
+        [label]="'PAN'" [pattern]="reusableValidation.pan" ngModel name="pan"></form-generic-input>
+
+
+    <form-generic-input [placeholder]="'AADHAR Card'" [isRequired]="true"
+        [errorMsg]="'Please enter valid AADHAR card no.'" [label]="'AADHAR'" [pattern]="reusableValidation.aadhar"
+        ngModel name="aadhar"></form-generic-input>
 
     <form-generic-toggle [label]="'Stay signed in?'" id="'staysignedin'" ngModel
         name="staysignedin"></form-generic-toggle>
@@ -30,11 +33,5 @@
     <ng-template #notFoundTemplate let-notFound>
         <div [innerHTML]="notFound"></div>
     </ng-template>
-    <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block mt-2" [disabled]="!f.valid" type="submit">Sign in</button>
 </form>
-
-<div class="p-5">
-    <a class="p-2 text-dark">
-        <button class="btn btn-lg btn-primary btn-block mt-2" routerLink="/paginator">To paginator demo&rarr;</button>
-    </a>
-</div>

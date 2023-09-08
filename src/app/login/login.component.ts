@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { FormGenericSpinnerService, ToastrService,  } from 'reusable-ui-library';
+// import { Router } from '@angular/router';
+import {
+  FormGenericSpinnerService,
+  ToastrService,
+  VALIDATION_REGEX,
+} from 'reusable-ui-library';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +13,20 @@ import { FormGenericSpinnerService, ToastrService,  } from 'reusable-ui-library'
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private spinner: FormGenericSpinnerService, private snackbar : ToastrService) {}
+  constructor(
+    private spinner: FormGenericSpinnerService,
+    private snackbar: ToastrService,
+    // private router: Router
+  ) {}
 
-  onSubmit(f: NgForm) {
+  reusableValidation = VALIDATION_REGEX;
+
+  onSubmit(f: NgForm): void {
     console.log(f);
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
-      // this.router.navigate(['/dashboard'])
+      // this.router.navigate(['/dashboard']);
       this.snackbar.success('Login Successful!', 'Please Continue');
     }, 3000);
   }
