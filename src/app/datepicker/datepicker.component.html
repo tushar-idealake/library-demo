@@ -1,0 +1,129 @@
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <h1>Generic Datepicker</h1>
+  
+    <h2>Click</h2>
+  
+    <div class="container">
+      <generic-datepicker #datepicker (dateClicked)="date = $any($event)"></generic-datepicker>
+  
+      <div class="container-info">
+        <div>
+          <h3>(dateClicked)</h3>
+          <h4>{{ date }}</h4>
+        </div>
+  
+        <button type="button" class="mb-2" (click)="datepicker?.goPrevYear()">Custom Prev (Prev Year)</button>
+        <button type="button" (click)="datepicker?.goNextYear()">Custom Next (Next Year)</button>
+      </div>
+    </div>
+  
+    <!-- <h2>Forms</h2>
+  
+    <div class="container">
+      <generic-datepicker #datepicker2 name="model" [(ngModel)]="model"></generic-datepicker>
+  
+      <div class="container-info">
+        <div>
+          <h3>[(ngModel)]</h3>
+          <h4>{{ model }}</h4>
+        </div>
+  
+        <button type="button" class="mb-2" (click)="datepicker2?.goPrev()">Custom Prev</button>
+        <button type="button" (click)="datepicker2?.goNext()">Custom Next</button>
+      </div>
+    </div>
+  
+    <h2>Both</h2>
+  
+    <div class="container">
+      <generic-datepicker name="model2" [(ngModel)]="model2" (dateClicked)="date2 = $any($event)"></generic-datepicker>
+  
+      <div class="container-info">
+        <div>
+          <h3>[(dateClicked)]</h3>
+          <h4>{{ date2 }}</h4>
+        </div>
+  
+        <div>
+          <h3>[(ngModel)]</h3>
+          <h4>{{ model2 }}</h4>
+        </div>
+      </div>
+    </div>
+  
+    <h2>Slots</h2>
+  
+    <div class="container">
+      <generic-datepicker #datepicker3 name="model3" [(ngModel)]="model3" (dateClicked)="date3 = $any($event)">
+        <button type="button" class="mb-2" (click)="datepicker3?.goPrev()" prev>
+          Custom Prev
+        </button>
+        <button type="button" (click)="datepicker3?.goNext()" next>
+          Custom Next
+        </button>
+        <strong month>{{ datepicker3.current.toString() | date: "MM yyyy" }}</strong>
+      </generic-datepicker>
+  
+      <div class="container-info">
+        <div>
+          <h3>[(dateClicked)]</h3>
+          <h4>{{ date3 }}</h4>
+        </div>
+  
+        <div>
+          <h3>[(ngModel)]</h3>
+          <h4>{{ model3 }}</h4>
+        </div>
+      </div>
+    </div>
+  
+    <h2>Invalid dates</h2>
+    <p>Tomorrow and one month from now are invalids, also <strong>previous days</strong> as set via
+      <i>disablePrevDates</i>
+      property.</p>
+  
+    <pre>{{invalidDates | json}}</pre>
+  
+    <div class="container">
+      <generic-datepicker name="model4" [(ngModel)]="model4" (dateClicked)="date4 = $any($event)"
+        [invalidDates]="invalidDates" [disablePrevDates]="true">
+      </generic-datepicker>
+  
+      <div class="container-info">
+        <div>
+          <h3>[(dateClicked)]</h3>
+          <h4>{{ date4 }}</h4>
+        </div>
+  
+        <div>
+          <h3>[(ngModel)]</h3>
+          <h4>{{ model4 }}</h4>
+        </div>
+      </div>
+    </div>
+  
+    <h2>Valid dates</h2>
+  
+    <p>
+      Today, tomorrow and the same to the next month with its first date as well are valid, all others are disabled.
+    </p>
+  
+    <pre>{{validDates | json}}</pre>
+  
+    <div class="container">
+      <generic-datepicker name="model5" [(ngModel)]="model5" [validDates]="validDates" (dateClicked)="date5 = $any($event)">
+      </generic-datepicker>
+  
+      <div class="container-info">
+        <div>
+          <h3>[(dateClicked)]</h3>
+          <h4>{{ date5 }}</h4>
+        </div>
+  
+        <div>
+          <h3>[(ngModel)]</h3>
+          <h4>{{ model5 }}</h4>
+        </div>
+      </div>
+    </div> -->
+  </div>

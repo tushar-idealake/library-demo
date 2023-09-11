@@ -4,6 +4,10 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
+  "allowedNonPeerDependencies": [
+    "tslib",
+    "moment"
+  ],
   "assets": [
     "./toastr.css",
     "./toastr-old.css",

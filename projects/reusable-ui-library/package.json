@@ -11,7 +11,8 @@
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0",
-    "@angular/animations": ">=15.0.0"
+    "@angular/animations": ">=15.0.0",
+    "moment": "^2.24.0"
   },
   "exports": {
     "./toastr": {
@@ -28,7 +29,8 @@
     }
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "moment": "^2.24.0"
   },
   "sideEffects": false
 }

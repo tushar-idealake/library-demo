@@ -1,0 +1,343 @@
+import moment_ from 'moment/moment';
+const moment = moment_;
+import {
+  Component,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
+import { Moment } from 'moment';
+import { IDay } from './interfaces/day/day';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+@Component({
+  selector: 'generic-datepicker',
+  template: `
+    <div *ngIf="!isOpen" class="baseinput">
+      <input type="datetime" id="picker" value="{{ this.value }}" />
+      <svg
+        (click)="isOpen = !isOpen"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-calendar calendar-input"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+        />
+      </svg>
+    </div>
+    <div *ngIf="isOpen" class="datepicker">
+      <div class="datepicker__content">
+        <header class="datepicker__year">
+          <span>{{ year }}</span>
+        </header>
+        <header class="datepicker__header">
+          <button
+            *ngIf="!prevSlot.innerHTML.trim()"
+            type="button"
+            class="previous"
+            (click)="toggleMonth(false)"
+          >
+            {{ previous }}
+          </button>
+
+          <div #prevSlot>
+            <ng-content select="[prev]"></ng-content>
+          </div>
+
+          <strong *ngIf="!month.innerHTML.trim()" class="current">
+            {{ current.format('MMMM') }}
+          </strong>
+
+          <div #month>
+            <ng-content select="[month]"></ng-content>
+          </div>
+
+          <button
+            *ngIf="!nextSlot.innerHTML.trim()"
+            type="button"
+            class="next"
+            (click)="toggleMonth(true)"
+          >
+            {{ next }}
+          </button>
+
+          <div #nextSlot>
+            <ng-content select="[next]"></ng-content>
+          </div>
+        </header>
+
+        <div class="datepicker__weeks">
+          <div class="datepicker__week" *ngFor="let week of weeks">
+            <strong>{{ week.weekday | weekday }}</strong>
+            <ul class="datepicker__days">
+              <li
+                *ngFor="let date of week.days"
+                [ngClass]="{ disabled: date.disabled, selected: date.selected }"
+                (click)="select(date); isOpen = !isOpen"
+              >
+                {{ date.day | date : 'd' }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  styleUrls: ['./generic-datepicker.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => GenericdatepickerComponent),
+      multi: true,
+    },
+  ],
+})
+export class GenericdatepickerComponent
+  implements OnInit, ControlValueAccessor, OnChanges
+{
+  @Output() dateClicked = new EventEmitter<string>();
+  @Input() invalidDates: string[] = [];
+  @Input() validDates: string[] = [];
+  // @ts-ignore
+  @Input() disablePrevDates;
+  isOpen: Boolean = false;
+
+  // tslint:disable-next-line:no-any
+  weeks: any[] = Array.from(Array(7).keys(), (n) => {
+    return { weekday: n, days: [] };
+  });
+  current: Moment;
+  // tslint:disable-next-line:no-any
+  previous: any;
+  // tslint:disable-next-line:no-any
+  next: any;
+  // @ts-ignore
+  selected: IDay;
+  val = '';
+  year!: any;
+
+  constructor() {
+    this.current = moment();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['validDates']) {
+      this.buildMonth();
+    }
+  }
+
+  // tslint:disable-next-line:no-any
+  onChange: any = () => {};
+
+  // tslint:disable-next-line:no-any
+  onTouch: any = () => {};
+
+  get value() {
+    return this.val;
+  }
+
+  set value(val) {
+    if (val !== undefined && this.val !== val) {
+      this.val = val;
+      this.onChange(val);
+      this.onTouch(val);
+
+      if (this.value) {    
+        const day = moment(new Date(this.value)).startOf('day');
+
+        this.current = moment(new Date(this.value));
+
+        this.selected = {
+          day: day.format(),
+          weekday: parseInt(day.format('d'), 10),
+          disabled: false,
+          selected: true,
+        };
+
+        this.select(this.selected);
+      }
+
+      this.updatePrevNext();
+    }
+  }
+
+  // this method sets the value programmatically
+  // tslint:disable-next-line:no-any
+  writeValue(value: any) {
+    this.value = value;
+  }
+
+  // upon UI element value changes, this method gets triggered
+  // tslint:disable-next-line:no-any
+  registerOnChange(fn: any) {
+    this.onChange = fn;
+  }
+
+  // upon touching the element, this method gets triggered
+  // tslint:disable-next-line:no-any
+  registerOnTouched(fn: any) {
+    this.onTouch = fn;
+  }
+
+  updatePrevNext() {
+    const date = moment(this.current.format());
+    this.previous = date.subtract(1, 'month').format('MMMM');
+    this.next = date.add(2, 'month').format('MMMM');
+    this.buildMonth();
+  }
+
+  ngOnInit() {
+    this.year = this.current.year();
+    this.updatePrevNext();
+  }
+
+  buildMonth() {
+    const days: IDay[] = [];
+    const date = moment(this.current, 'MMMM');
+    const startOfMonth = moment(date.startOf('month'));
+    const endOfMonth = moment(date.endOf('month'));
+    const currentMonth = endOfMonth.format('M');
+    const day = startOfMonth;
+
+    // Check if startOfMonth's weekday starts on 0, if not, update it to the first
+    // earlier date which starts with 0
+    const startOfMonthWeekday = parseInt(startOfMonth.format('d'), 10);
+    Array.from(Array(startOfMonthWeekday).keys()).map(() =>
+      startOfMonth.subtract(1, 'day')
+    );
+
+    // Same with endOfMonth ending on a 6
+    const endOfMonthWeekday = parseInt(endOfMonth.format('d'), 10);
+    Array.from(Array(6 - endOfMonthWeekday).keys()).map(() =>
+      endOfMonth.add(1, 'day')
+    );
+
+    while (startOfMonth <= endOfMonth) {
+      const obj: IDay = {
+        day: day.format(),
+        weekday: parseInt(day.format('d'), 10),
+        disabled: !(currentMonth === day.format('M')),
+        selected: day.format() === this.selected?.day,
+      };
+
+      // Verify if this day is within invalidDates array
+      if (this.invalidDates.length) {
+        let hasFoundEqual = false;
+
+        for (let i = 0; i < this.invalidDates.length && !hasFoundEqual; i++) {
+          hasFoundEqual = day.isSame(this.invalidDates[i], 'day');
+        }
+
+        if (hasFoundEqual) {
+          obj.disabled = true;
+        } else if (this.disablePrevDates) {
+          obj.disabled =
+            day.isBefore(moment().startOf('day').format()) ||
+            !(currentMonth === day.format('M'));
+        }
+      }
+
+      if (this.disablePrevDates && !this.invalidDates.length) {
+        obj.disabled =
+          day.isBefore(moment().startOf('day').format()) ||
+          !(currentMonth === day.format('M'));
+      }
+
+      // Verify if this day is within validDates array
+      if (this.validDates.length) {
+        let hasFoundEqual = false;
+
+        for (let i = 0; i < this.validDates.length && !hasFoundEqual; i++) {
+          hasFoundEqual = day.isSame(this.validDates[i], 'day');
+        }
+
+        if (hasFoundEqual) {
+          obj.disabled =
+            day.isBefore(moment().startOf('day').format()) ||
+            !(currentMonth === day.format('M'));
+        } else {
+          obj.disabled = true;
+        }
+      }
+
+      days.push(obj);
+      day.add(1, 'day');
+    }
+
+    this.matchDays(days);
+  }
+
+  // tslint:disable-next-line:no-any
+  matchDays(days: any[]) {
+    this.weeks.map((week) => {
+      week.days = days.filter((day) => week.weekday === day.weekday);
+      return week;
+    });
+  }
+
+  /**
+   * @description
+   * Back or go between months
+   *
+   * @param add Either add or subtract a month
+   */
+  toggleYear(add: boolean) {
+    const date = moment(this.current, 'MMMM');
+    add ? date.add(1, 'year') : date.subtract(1, 'year');
+    this.current = date;
+    this.year = date.year();
+    this.updatePrevNext();
+  }
+
+  toggleMonth(add: boolean) {
+    const date = moment(this.current, 'MMMM');
+    add ? date.add(1, 'month') : date.subtract(1, 'month');
+    this.current = date;
+    this.year = date.year();
+    this.updatePrevNext();
+  }
+
+  goPrev = () => this.toggleMonth(false);
+
+  goNext = () => this.toggleMonth(true);
+
+  goPrevYear = () => this.toggleYear(false);
+
+  goNextYear = () => this.toggleYear(true);
+
+  /**
+   * @description
+   * Emit a value and add selected class to the current day
+   *
+   * @param date Current clicked day
+   */
+  select(date: IDay) {
+    this.selected = { ...date, selected: true };
+    this.dateClicked.emit(date.day);
+    this.writeValue(moment(date.day).format('L'));
+    this.addClass();
+  }
+
+  addClass() {
+    // Set selected class
+    this.weeks = this.weeks.map((week) => {
+      // tslint:disable-next-line:no-any
+      week.days = week.days.map((dayItem: any) => {
+        return {
+          ...dayItem,
+          selected: dayItem.day === this.selected?.day,
+        };
+      });
+
+      return week;
+    });
+  }
+}

@@ -33,3 +33,9 @@ export * from './lib/paginator/paginator.module';
 export * from './lib/paginator/paginator.pipe';
 export * from './lib/paginator/paginator.directive';
 export * from './lib/Validations/reusable-validation';
+
+// Datepicker
+
+export * from './lib/generic-datepicker/generic-datepicker.component';
+export * from './lib/generic-datepicker/generic-datepicker.module';
+export * from './lib/generic-datepicker/pipes/weekday/weekday.pipe';
