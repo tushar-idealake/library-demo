@@ -9,9 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, PaginatorComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, PaginatorComponent, DatepickerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
