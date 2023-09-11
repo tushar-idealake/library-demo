@@ -15,6 +15,7 @@ Run `ng generate component component-name --project reusable-ui-library` to gene
 - generic-autocomplete
 - generic-toastr
 - Paginator
+- generic-datepicker
 
 
 ## Build
