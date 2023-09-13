@@ -4,14 +4,14 @@
         <!-- <pre>{{ f.value | json }}</pre> -->
     </div>
 
-    <form-generic-input [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
+    <form-generic-input type="text" [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
         [label]="'User Email'" [pattern]="reusableValidation.email" ngModel name="email"></form-generic-input>
 
-    <form-generic-input [placeholder]="'PAN Card'" [isRequired]="true" [errorMsg]="'Please enter valid PAN card no.'"
+    <form-generic-input type="text" [placeholder]="'PAN Card'" [isRequired]="true" [errorMsg]="'Please enter valid PAN card no.'"
         [label]="'PAN'" [pattern]="reusableValidation.pan" ngModel name="pan"></form-generic-input>
 
 
-    <form-generic-input [placeholder]="'AADHAR Card'" [isRequired]="true"
+    <form-generic-input type="text" [placeholder]="'AADHAR Card'" [isRequired]="true"
         [errorMsg]="'Please enter valid AADHAR card no.'" [label]="'AADHAR'" [pattern]="reusableValidation.aadhar"
         ngModel name="aadhar"></form-generic-input>
 
