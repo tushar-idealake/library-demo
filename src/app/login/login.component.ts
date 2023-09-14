@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 // import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import {
   FormGenericSpinnerService,
   ToastrService,
@@ -16,6 +17,7 @@ export class LoginComponent {
   constructor(
     private spinner: FormGenericSpinnerService,
     private snackbar: ToastrService,
+    private http: HttpClient
     // private router: Router
   ) {}
 
