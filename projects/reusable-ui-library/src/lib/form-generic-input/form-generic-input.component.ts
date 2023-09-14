@@ -31,7 +31,7 @@ export class FormGenericInputComponent
   @ViewChild('input') input!: ElementRef;
   disabled: any;
 
-  @Input() type = 'text';
+  @Input() type! : string;
   @Input() isRequired: boolean = false;
   @Input() pattern: string = '';
   @Input() label: string = '';

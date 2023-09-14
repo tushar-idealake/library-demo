@@ -3,14 +3,23 @@
         <h1 class="h3 mb-3 font-weight-normal">Sign up with us!</h1>
     </div>
 
-    <form-generic-input [placeholder]="'Username'" [isRequired]="true" [errorMsg]="'Please enter valid username'"
-        [label]="'Username'" [pattern]="Validatorspattern.username" ngModel name="username"></form-generic-input>
+    <form-generic-input type="text" [placeholder]="'name'" [isRequired]="true" [errorMsg]="'Please enter valid username'"
+        [label]="'name'" [pattern]="Validatorspattern.username" ngModel name="name"></form-generic-input>
 
-    <form-generic-input [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
+    <form-generic-input type="text" [placeholder]="'Email'" [isRequired]="true" [errorMsg]="'Please enter valid email address'"
         [label]="'User Email'" [pattern]="Validatorspattern.email" ngModel name="email"></form-generic-input>
 
-    <form-generic-input [placeholder]="'Age'" [isRequired]="true" [label]="'Age'"
+    <!-- <form-generic-input type="text" [placeholder]="'Age'" [isRequired]="true" [label]="'Age'"
         [errorMsg]="'Please enter valid number of years of age'" [pattern]="Validatorspattern.age" ngModel
-        name="age"></form-generic-input>
-    <button class="btn btn-lg btn-primary btn-block mt-2" [disabled]="!f.valid" type="submit">Sign up</button>
+        name="age"></form-generic-input> -->
+
+    <form-generic-input type="password" [placeholder]="'Password'" [isRequired]="true" [label]="'Password'"
+        [errorMsg]="'Please enter valid password'" [pattern]="Validatorspattern.password" ngModel
+        name="password"></form-generic-input>
+
+    <form-generic-input type="password" [placeholder]="'Confirm Password'" [isRequired]="true" [label]="'Confirm Password'"
+        [errorMsg]="'Please repeat your password'" [pattern]="Validatorspattern.password" ngModel
+        name="passwordConfirm"></form-generic-input>
+    
+    <button class="btn btn-lg btn-primary btn-block mt-2"  type="submit">Sign up</button>
 </form>

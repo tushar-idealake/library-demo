@@ -42,5 +42,4 @@ testem.log
 Thumbs.db
 
 # Library Node Modules
-
 /projects/reusable-ui-library/node_modules/*

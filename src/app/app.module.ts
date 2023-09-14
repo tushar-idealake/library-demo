@@ -8,11 +8,12 @@ import { PaginatorModule, ReusableUILibraryModule, ToastrModule } from 'reusable
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PaginatorComponent } from './paginator/paginator.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, PaginatorComponent, DatepickerComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, PaginatorComponent, DatepickerComponent, DashboardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,7 +24,8 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
     }),
     FormsModule,
     ReactiveFormsModule,
-    PaginatorModule
+    PaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
