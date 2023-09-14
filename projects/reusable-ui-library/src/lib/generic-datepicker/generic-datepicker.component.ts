@@ -36,7 +36,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     <div *ngIf="isOpen" class="datepicker">
       <div class="datepicker__content">
         <header class="datepicker__year">
+          <span class="arrow" (click)="toggleYear(false)">&LeftAngleBracket;</span>
           <span>{{ year }}</span>
+          <span class="arrow" (click)="toggleYear(true)">&RightAngleBracket;</span>
         </header>
         <header class="datepicker__header">
           <button
@@ -150,7 +152,7 @@ export class GenericdatepickerComponent
       this.onChange(val);
       this.onTouch(val);
 
-      if (this.value) {    
+      if (this.value) {
         const day = moment(new Date(this.value)).startOf('day');
 
         this.current = moment(new Date(this.value));
