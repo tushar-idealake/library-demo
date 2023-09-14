@@ -10,6 +10,10 @@
 .calendar-input {
   position: relative;
   left: -25px;
+  &:hover {
+    text-shadow: 0 0.7px 4px black;
+    color: #40bbef;
+  }
 }
 
 ul {
@@ -94,8 +98,20 @@ button {
     justify-content: space-between;
   }
 
-  &__year span {
+  &__year {
     font-size: 2rem;
+
+    &>.arrow {
+      color: #ccc;
+      cursor: pointer;
+
+      &:hover {
+        color: #40bbef;
+        transform: scale(1.1);
+        text-shadow: 0 0.7px 4px black;
+        transition: all .5ms;
+      }
+    }
   }
 
   &__header button {
@@ -109,6 +125,7 @@ button {
     border: calculateRem(1px) solid $color-light-light;
     border-radius: calculateRem(32px);
     padding: calculateRem(13px) calculateRem(16px) calculateRem(16px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.15);
 
     @media screen and (min-width: $size-mobile) {
       padding: calculateRem(21px) calculateRem(16px) calculateRem(2px);
