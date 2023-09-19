@@ -1,11 +1,15 @@
 {
   "name": "reusable-ui-library",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "UI component library made as a part of task",
   "author": "Tushar G Kadam",
   "repository": {
     "type": "git",
     "url": "https://github.com/tushar-idealake/library-demo"
+  },
+  "scripts": {
+    "build" : "tsc -p tsconfig.schematics.json",
+    "postbuild" : "copyfiles schematics/*/files/** schematics/collection.json ../../dist/reusable-ui-library/"
   },
   "license": "MIT",
   "peerDependencies": {
@@ -14,6 +18,10 @@
     "@angular/animations": ">=15.0.0",
     "moment": "^2.24.0"
   },
+  "ng-add": {
+    "save": "true"
+  },
+  "schematics": "./schematics/collection.json",
   "exports": {
     "./toastr": {
       "default": "./toastr-bs5-alert.scss"

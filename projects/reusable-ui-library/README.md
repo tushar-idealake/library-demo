@@ -7,6 +7,11 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng generate component component-name --project reusable-ui-library` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project reusable-ui-library`.
 > Note: Don't forget to add `--project reusable-ui-library` or else it will be added to the default project in your `angular.json` file. 
 
+
+# Added ng add support
+
+> To Install this library and import module automatically in app module execute `ng add reusable-ui-library` in command line.
+
 # UI-components present in this library
 
 - form-generic-input
