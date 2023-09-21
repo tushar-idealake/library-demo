@@ -21,6 +21,8 @@ Run `ng generate component component-name --project reusable-ui-library` to gene
 - generic-toastr
 - Paginator
 - generic-datepicker
+- login-form-component (basic form which can be generated using angular schematics)
+   > To generate this `ng g reusable-ui-library:login-form-component --name <name of component>`
 
 
 ## Build

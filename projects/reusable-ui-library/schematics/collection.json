@@ -4,6 +4,14 @@
         "ng-add" : {
             "description": "Add reusable UI library to project",
             "factory": "./ng-add/index#ngAdd"
+        },
+        "login-form-component": {
+            "description": "This schematic generates basic form component",
+            "factory": "./login-form-component/index#LoginFormComponentGenerator",
+            "schema": "./login-form-component/schema.json",
+            "aliases": [
+                "login-form"
+            ]
         }
     }
 }
