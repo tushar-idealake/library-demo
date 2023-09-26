@@ -29,7 +29,7 @@ import {
         [isRequired]="true"
         [label]="'Password'"
         [errorMsg]="'Please enter valid password'"
-        [pattern]="reusableValidation.password"
+        [pattern]="reusableValidation.email"
         ngModel
         name="password"
       ></form-generic-input>
