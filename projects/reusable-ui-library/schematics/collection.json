@@ -12,6 +12,14 @@
             "aliases": [
                 "login-form"
             ]
+        },
+        "add-loader": {
+            "description": "This schematic adds custom animation generic spinner in app.component.html",
+            "factory": "./login-form-component/index#addLoader",
+            "schema": "./login-form-component/loader-schema.json",
+            "aliases": [
+                "generic-spinner"
+            ]
         }
     }
 }

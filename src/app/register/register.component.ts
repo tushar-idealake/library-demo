@@ -54,5 +54,6 @@ export class RegisterComponent {
     username: '[A-Za-z0-9._%-]{6,9}',
     age: '[0-9]{1,3}',
     password: '[A-Za-z0-9.@_%-]{6,12}',
+    mobile: '[0-9]{10}'
   };
 }

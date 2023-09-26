@@ -1,0 +1,11 @@
+{
+    "$id": "login-form-component",
+    "title": "Loader Schema",
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "class and type of loader",
+            "type": "string"
+        }
+    }
+}

@@ -7,6 +7,8 @@ import {
   mergeWith,
   move,
   Rule,
+  SchematicContext,
+  Tree,
   url,
 } from '@angular-devkit/schematics';
 import { strings, normalize } from '@angular-devkit/core';
@@ -28,5 +30,25 @@ export function LoginFormComponentGenerator(
       externalSchematic('@schematics/angular', 'component', options),
       mergeWith(templateSource, MergeStrategy.Overwrite),
     ]);
+  };
+}
+
+export function addLoader(obj: { type: string }): Rule {
+  return (tree: Tree, _context: SchematicContext) => {
+    const content: Buffer | null = tree.read('./src/app/app.component.html');
+    let strContent: string = '';
+    let classContent: string = '';
+    if (content) strContent = content.toString();
+
+    if (obj.type) {
+      classContent = obj.type;
+    } else {
+      classContent = 'pacman';
+    }
+    const content2Append = `   <form-generic-spinner type="${classContent}"></form-generic-spinner> \n`;
+    const updatedContent = strContent + content2Append;
+
+    tree.overwrite('./src/app/app.component.html', updatedContent);
+    return tree;
   };
 }
