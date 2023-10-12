@@ -29,7 +29,8 @@ export class RegisterComponent {
         'https://node-backend-3ynr.onrender.com/api/v1/users/signup',
         f,
         {
-          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' , "Access-Control-Allow-Credentials":"*"}),
+          withCredentials: true,
           observe: 'response',
         }
       )
