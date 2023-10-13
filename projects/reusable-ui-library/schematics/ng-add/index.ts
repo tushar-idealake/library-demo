@@ -38,6 +38,36 @@ export function ngAdd(): Rule {
       )
     );
 
+    applyToUpdateRecorder(
+      recorder,
+      addImportToModule(
+        source,
+        modulePath,
+        'BrowserAnimationsModule',
+        '@angular/platform-browser/animations'
+      )
+    );
+
+    applyToUpdateRecorder(
+      recorder,
+      addImportToModule(
+        source,
+        modulePath,
+        'FormsModule',
+        '@angular/forms'
+      )
+    );
+
+    applyToUpdateRecorder(
+      recorder,
+      addImportToModule(
+        source,
+        modulePath,
+        'ReactiveFormsModule',
+        '@angular/forms'
+      )
+    );
+
     tree.commitUpdate(recorder);
     context.logger.info('Installing Dependencies...');
     context.addTask(new NodePackageInstallTask({}));

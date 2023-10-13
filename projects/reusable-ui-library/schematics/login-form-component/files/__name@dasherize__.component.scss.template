@@ -1,0 +1,4 @@
+.section-height {
+    background-color: #eee;
+    height: 100vh;
+}

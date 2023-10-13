@@ -48,6 +48,14 @@ export function addLoader(obj: { type: string }): Rule {
     const content2Append = `   <form-generic-spinner type="${classContent}"></form-generic-spinner> \n`;
     const updatedContent = strContent + content2Append;
 
+    const csscontent: Buffer | null = tree.read('./src/styles.scss');
+    let strcssContent: string = '';
+    if (csscontent) strcssContent = csscontent.toString();
+
+    const content2Appendcss = `@import '../node_modules/reusable-ui-library/toastr.css';`;
+    const updatedcssContent = strcssContent + content2Appendcss;
+
+    tree.overwrite('./src/styles.scss', updatedcssContent);
     tree.overwrite('./src/app/app.component.html', updatedContent);
     return tree;
   };
