@@ -29,7 +29,7 @@ export class LoginComponent {
     setTimeout(() => {
       this.spinner.hide();
       // this.router.navigate(['/dashboard']);
-      this.snackbar.success('Login Successful!', 'Please Continue');
+      this.snackbar.error('Login Successful!', 'Please Continue');
     }, 3000);
   }
   keyword = 'name';
