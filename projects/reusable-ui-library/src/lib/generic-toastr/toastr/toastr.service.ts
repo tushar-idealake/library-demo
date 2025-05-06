@@ -84,8 +84,8 @@ export class ToastrService {
       this.applyConfig(override)
     );
   }
-  /** show successful toast */
-  success<ConfigPayload = any>(
+  /** show 👉success👈 toast */
+  error<ConfigPayload = any>(
     message?: string,
     title?: string,
     override: Partial<IndividualConfig<ConfigPayload>> = {}
@@ -98,8 +98,8 @@ export class ToastrService {
       this.applyConfig(override)
     );
   }
-  /** show error toast */
-  error<ConfigPayload = any>(
+  /** show 👉error👈 toast */
+  success<ConfigPayload = any>(
     message?: string,
     title?: string,
     override: Partial<IndividualConfig<ConfigPayload>> = {}
